@@ -1,92 +1,122 @@
-"use client";
-
-import { Avatar, Dropdown, Navbar } from "flowbite-react";
-import Image from "next/image";
-import { motion } from "framer-motion";
+import { useState } from "react";
+import useLocalStorage from "use-local-storage";
 
 const Header = () => {
+  const [isOpen, setIsOpen] = useState(false);
+  const [mobileStored, setMobileStored] = useLocalStorage("isMobile", false);
+
+  const toggleNavbar = () => {
+    setIsOpen(!isOpen);
+  };
+
   return (
-    <Navbar rounded style={{ backgroundColor: "#292524 !important" }}>
-      <Navbar.Brand href="/">
-        <Image
-          src="/logo.png"
-          alt="Signature Penguin"
-          width={100}
-          height={100}
-        />
-        <span className="self-center text-2xl font-semibold whitespace-nowrap text-primary">
-          Mr. Penguin
-        </span>
-      </Navbar.Brand>
-      <motion.div
-        className="px-5 py-3 border-2"
-        initial={{
-          borderImageSource: "linear-gradient(90deg, #00ff99, #ff0066)",
-        }}
-        animate={{
-          borderImageSource: [
-            "linear-gradient(90deg, #00ff99, #ff0066)",
-            "linear-gradient(180deg, #00ff99, #ff0066)",
-            "linear-gradient(270deg, #00ff99, #ff0066)",
-            "linear-gradient(360deg, #00ff99, #ff0066)",
-          ],
-        }}
-        transition={{
-          duration: 4,
-          ease: "linear",
-          repeat: Infinity,
-        }}
-        style={{ borderImageSlice: 5 }}
-      >
-        <Navbar.Collapse>
-          <Navbar.Link
+    <>
+      {!mobileStored ? (
+        <div className="flex flex-row justify-between items-center px-4 sm:px-8 md:px-12 lg:px-52 m-8">
+          <a
             href="#"
-            active
-            className="text-xl text-primary md:bg-transparent md:text-[#e5e5e5] md:p-0"
+            className="text-base header-text transition duration-0 hover:duration-150 ease-in-out"
           >
             Home
-          </Navbar.Link>
-          <Navbar.Link
+          </a>
+          <a
             href="#"
-            className="text-xl text-primary rounded md:hover:bg-transparent md:hover:text-[#e5e5e5] md:p-0"
+            className="text-base header-text duration-0 hover:duration-150 ease-in-out"
           >
             About me
-          </Navbar.Link>
-          <Navbar.Link
+          </a>
+
+          <a
             href="#"
-            className="text-xl text-primary rounded md:hover:bg-transparent md:hover:text-[#e5e5e5] md:p-0"
+            className="transition duration-0 hover:duration-150 ease-in-out"
           >
-            Career
-          </Navbar.Link>
-          <Navbar.Link
+            <img
+              src="/logo.png"
+              className="object-cover"
+              width={80}
+              height={80}
+            />
+          </a>
+
+          <a
             href="#"
-            className="text-xl text-primary rounded md:hover:bg-transparent md:hover:text-[#e5e5e5] md:p-0"
+            className="text-basel header-text duration-0 hover:duration-150 ease-in-out"
+          >
+            Project
+          </a>
+          <a
+            href="#"
+            className="text-base header-text duration-0 hover:duration-150 ease-in-out"
           >
             Contact
-          </Navbar.Link>
-        </Navbar.Collapse>
-      </motion.div>
-      <div className="flex md:order-2">
-        <Dropdown
-          arrowIcon={false}
-          inline
-          label={<Avatar alt="User information" img="/ava.jpg" rounded />}
-        >
-          <Dropdown.Header>
-            <span className="block text-sm">Bonnie Green</span>
-            <span className="block truncate text-sm font-medium">
-              name@flowbite.com
-            </span>
-          </Dropdown.Header>
-          <Dropdown.Item>Dashboard</Dropdown.Item>
-          <Dropdown.Item>Settings</Dropdown.Item>
-          <Dropdown.Item>Earnings</Dropdown.Item>
-          <Dropdown.Divider />
-          <Dropdown.Item>Sign out</Dropdown.Item>
-        </Dropdown>
-        <Navbar.Toggle />
-      </div>
-    </Navbar>
+          </a>
+        </div>
+      ) : (
+        <>
+          <div className="flex">
+            <div
+              className={`fixed top-0 left-0 h-full bg-gray-800 text-white transform ${
+                isOpen ? "translate-x-0" : "-translate-x-full"
+              } transition-transform duration-300 ease-in-out w-64`}
+            >
+              <button
+                onClick={toggleNavbar}
+                className="text-white p-4 focus:outline-none"
+              >
+                {isOpen ? "Close" : "Open"}
+              </button>
+              <nav className="mt-8">
+                <a
+                  href="#"
+                  className="block px-4 py-2 text-lg hover:bg-gray-700"
+                >
+                  Home
+                </a>
+                <a
+                  href="#"
+                  className="block px-4 py-2 text-lg hover:bg-gray-700"
+                >
+                  About me
+                </a>
+                <a
+                  href="#"
+                  className="block px-4 py-2 text-lg hover:bg-gray-700"
+                >
+                  Project
+                </a>
+                <a
+                  href="#"
+                  className="block px-4 py-2 text-lg hover:bg-gray-700"
+                >
+                  Contact
+                </a>
+              </nav>
+            </div>
+          </div>
+          <div className="flex justify-center mb-2">
+            {!isOpen ? (
+              <button onClick={toggleNavbar}>
+                <img
+                  src="/logo.png"
+                  className="object-cover"
+                  width={80}
+                  height={80}
+                />
+              </button>
+            ) : (
+              <button>
+                <img
+                  src="/logo.png"
+                  className="object-cover"
+                  width={80}
+                  height={80}
+                />
+              </button>
+            )}
+          </div>
+        </>
+      )}
+    </>
   );
 };
 

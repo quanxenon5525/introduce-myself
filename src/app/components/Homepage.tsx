@@ -1,22 +1,16 @@
-"use client";
-
 import React from "react";
-import Header from "./Header";
 import FooterPage from "./Footer";
+import Header from "./Header";
 
-// eslint-disable-next-line @typescript-eslint/no-explicit-any
-const Homepage = (props: any) => {
-  const { children } = props;
-
+type HomePageProps = {
+  children: React.ReactNode;
+};
+const Homepage = ({ children }: HomePageProps) => {
   return (
-    <div className="layout">
-      <div>
-        <Header />
-      </div>
-      <div className="w-full h-full flex justify-center flex-1">{children}</div>
-      <div className="footer">
-        <FooterPage />
-      </div>
+    <div className="flex flex-col min-h-screen">
+      <Header />
+      <div className="w-full h-full flex-1">{children}</div>
+      <FooterPage />
     </div>
   );
 };

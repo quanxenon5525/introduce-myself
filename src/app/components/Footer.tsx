@@ -4,16 +4,18 @@ import { Footer } from "flowbite-react";
 import React from "react";
 
 const FooterPage = () => {
+  const date = new Date();
+  const currentYear = date.getFullYear();
+
   return (
-    <Footer container>
-      <Footer.Copyright href="#" by="Flowbite™" year={2022} />
-      <Footer.LinkGroup>
-        <Footer.Link href="#">About</Footer.Link>
-        <Footer.Link href="#">Privacy Policy</Footer.Link>
-        <Footer.Link href="#">Licensing</Footer.Link>
-        <Footer.Link href="#">Contact</Footer.Link>
-      </Footer.LinkGroup>
-    </Footer>
+    <div className="w-full h-auto p-5 text-center">
+      <Footer.Copyright
+        href="#"
+        by="Quan Nguyen. All Rights Reserved"
+        year={currentYear}
+        className="flex justify-center"
+      />
+    </div>
   );
 };
 

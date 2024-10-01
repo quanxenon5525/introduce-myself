@@ -3,23 +3,23 @@
 @tailwind utilities;
 
 :root {
-  --background: #292524;
+  --background: white;
   --foreground: #ededed;
-  --primary: #a3a3a3;
-  --primary-foreground: #171717;
+  --defaultText: black;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #292524;
-    --foreground: #ededed;
-  }
+html {
+  font-family: "ui-monospace", "SFMono-Regular", "Menlo", "Monaco", "Consolas",
+    "Liberation Mono", "Courier New", "monospace";
 }
 
 body {
-  color: var(--foreground);
+  color: var(--defaultText);
   background: var(--background);
-  font-family: Arial, Helvetica, sans-serif;
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden;
+  box-sizing: border-box;
 }
 
 @layer utilities {
@@ -34,13 +34,41 @@ body {
   min-height: 100vh;
 }
 
-.body {
-  flex: 1;
-  padding: 20px;
-}
-
-.footer {
-  background-color: var(--background);
+footer {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  background-color: #333;
+  color: white;
   text-align: center;
   padding: 10px;
+}
+
+.header-text {
+  color: black;
+}
+
+.header-text:hover {
+  color: gray;
+}
+
+.introduce {
+  border: 1px solid #78716c;
+}
+
+.introduce:hover {
+  background-color: #ececec;
+}
+
+nav a {
+  display: block;
+  padding: 10px;
+  color: #fff;
+  text-decoration: none;
+  transition: var(--background) 0.3s;
+}
+
+nav a:hover {
+  background-color: #4a5568;
 }
