@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React from "react";
 import useLocalStorage from "use-local-storage";
 
 type ListIntroProps = {
@@ -6,7 +6,7 @@ type ListIntroProps = {
   title: string;
 };
 export const ListIntro = ({ children, title }: ListIntroProps) => {
-  const [mobileStored, setMobileStored] = useLocalStorage("isMobile", false);
+  const [mobileStored] = useLocalStorage("isMobile", false);
 
   return (
     <div className="flex flex-col items-center mt-5">
@@ -29,7 +29,7 @@ export const ListIntro = ({ children, title }: ListIntroProps) => {
 };
 
 export const ListProject = ({ children, title }: ListIntroProps) => {
-  const [mobileStored, setMobileStored] = useLocalStorage("isMobile", false);
+  const [mobileStored] = useLocalStorage("isMobile", false);
 
   return (
     <div className="flex flex-col items-center mt-5">

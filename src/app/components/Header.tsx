@@ -3,7 +3,7 @@ import useLocalStorage from "use-local-storage";
 
 const Header = () => {
   const [isOpen, setIsOpen] = useState(false);
-  const [mobileStored, setMobileStored] = useLocalStorage("isMobile", false);
+  const [mobileStored] = useLocalStorage("isMobile", false);
 
   const toggleNavbar = () => {
     setIsOpen(!isOpen);

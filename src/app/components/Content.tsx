@@ -1,3 +1,5 @@
+/* eslint-disable @next/next/no-img-element */
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import Image from "next/image";
 import useLocalStorage from "use-local-storage";
 import { MockupLanguage, MockUpProjects, MockupTools } from "../data/data";
@@ -5,7 +7,7 @@ import { Introduction } from "./Introduction";
 import { ListIntro, ListProject } from "./ListIntro";
 
 export const Content = () => {
-  const [mobileStored, setMobileStored] = useLocalStorage("isMobile", false);
+  const [mobileStored] = useLocalStorage("isMobile", false);
 
   return (
     <div className="max-w-full max-h-full">
@@ -102,8 +104,8 @@ export const Content = () => {
                   <h6>{value.name}</h6>
                   <div className="flex flex-row text-wrap text-center items-center">
                     <p>Tech used:</p>
-                    {listIcon?.map((img: any) => (
-                      <div className="flex flex-row">
+                    {listIcon?.map((img: any, index: number) => (
+                      <div className="flex flex-row" key={index}>
                         <img src={img.icon} className="m-1" />
                       </div>
                     ))}
