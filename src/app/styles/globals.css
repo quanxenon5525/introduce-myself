@@ -58,7 +58,8 @@ footer {
 }
 
 .introduce:hover {
-  background-color: #ececec;
+  background-color: #fafafa;
+  border-color: white;
 }
 
 nav a {

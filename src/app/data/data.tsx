@@ -37,6 +37,10 @@ export const MockupLanguage = [
     name: "Strapi",
     icon: "/logo/strapi.svg",
   },
+  {
+    name: "Redux",
+    icon: "/logo/redux.svg",
+  },
 ];
 
 export const MockupTools = [
@@ -51,6 +55,14 @@ export const MockupTools = [
   {
     name: "Vite",
     icon: "/logo/vite.svg",
+  },
+  {
+    name: "Eslint",
+    icon: "/logo/eslint.svg",
+  },
+  {
+    name: "Docker",
+    icon: "/logo/docker.svg",
   },
   {
     name: "Figma",
@@ -90,7 +102,7 @@ export const MockUpProjects = [
         icon: "/logo/nextjs.svg",
       },
     ],
-    content: "Tôi còn nhìu thứ phải làm",
+    content: "Want to know more about me?. Come to find me in this project",
     image: "/anh1.jpeg",
     link: "",
   },
@@ -107,8 +119,19 @@ export const MockUpProjects = [
         icon: "/logo/css.svg",
       },
     ],
-    content: "Tôi không muốn làm gì hết",
+    content: "Online sale ticket for sports club",
     image: "/anh2.jpg",
     link: "",
+  },
+];
+
+export const MockUpExperiences = [
+  {
+    name: "Nexpando Joint Stock Company",
+    year: "2022-Current",
+    role: "Front-end Developer",
+    information:
+      "Started from intern to official developer. As a front-end dev I have a chance to join and develop projects in here. Highlights as Nextix_shop, Vnshop, Ces_Web",
+    icon: "/company/nexpando.png",
   },
 ];

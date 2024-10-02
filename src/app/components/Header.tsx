@@ -1,9 +1,10 @@
 import { useState } from "react";
-import useLocalStorage from "use-local-storage";
+import useLocalStorage from "../hooks/use-local-storage";
+import { useMobile } from "../context/MobileViewContext";
 
 const Header = () => {
   const [isOpen, setIsOpen] = useState(false);
-  const [mobileStored] = useLocalStorage("isMobile", false);
+  const { isMobile } = useMobile();
 
   const toggleNavbar = () => {
     setIsOpen(!isOpen);
@@ -11,7 +12,7 @@ const Header = () => {
 
   return (
     <>
-      {!mobileStored ? (
+      {!isMobile ? (
         <div className="flex flex-row justify-between items-center px-4 sm:px-8 md:px-12 lg:px-52 m-8">
           <a
             href="#"
@@ -33,6 +34,7 @@ const Header = () => {
             <img
               src="/logo.png"
               className="object-cover"
+              alt="logo"
               width={80}
               height={80}
             />
@@ -99,6 +101,7 @@ const Header = () => {
                 <img
                   src="/logo.png"
                   className="object-cover"
+                  alt="logo"
                   width={80}
                   height={80}
                 />
@@ -108,6 +111,7 @@ const Header = () => {
                 <img
                   src="/logo.png"
                   className="object-cover"
+                  alt="logo"
                   width={80}
                   height={80}
                 />
