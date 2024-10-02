@@ -23,7 +23,7 @@ export const Introduction = () => {
         height={100}
       />
       <h4 className="uppercase mt-3 mb-3 font-normal text-pretty text-center break-all">
-        Hi, I'm Quan Nguyen
+        Hi, I am Quan Nguyen
       </h4>
       <h5 className="uppercase text-gray-900 font-bold text-pretty text-center break-all">
         Junior Front-end Developer 👨‍💻

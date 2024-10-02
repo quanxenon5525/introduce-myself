@@ -1,8 +1,23 @@
 "use client";
 
-import React, { createContext, useContext, useEffect, useState } from "react";
+import React, {
+  createContext,
+  useContext,
+  useEffect,
+  useState,
+  Dispatch,
+  SetStateAction,
+} from "react";
 
-const MobileContext = createContext({ isMobile: false, setIsMobile: () => {} });
+interface MobileContextProps {
+  isMobile: boolean;
+  setIsMobile: Dispatch<SetStateAction<boolean>>;
+}
+
+const MobileContext = createContext<MobileContextProps>({
+  isMobile: false,
+  setIsMobile: () => {},
+});
 
 export const MobileProvider = ({ children }: { children: React.ReactNode }) => {
   // const [isMobile, setIsMobile] = useLocalStorage("isMobile", false);

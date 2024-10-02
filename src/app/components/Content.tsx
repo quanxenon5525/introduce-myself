@@ -117,6 +117,7 @@ export const Content = () => {
                     {listIcon?.map((img: any, index: number) => (
                       <div className="flex flex-row" key={index}>
                         <img
+                          alt="icon"
                           src={img.icon}
                           className="mx-1"
                           width="24"
