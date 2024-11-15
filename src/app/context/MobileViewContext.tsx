@@ -20,10 +20,8 @@ const MobileContext = createContext<MobileContextProps>({
 });
 
 export const MobileProvider = ({ children }: { children: React.ReactNode }) => {
-  // const [isMobile, setIsMobile] = useLocalStorage("isMobile", false);
   const [isMobile, setIsMobile] = useState(false);
   useEffect(() => {
-    // if (typeof window != undefined) {
     const handleResize = () => {
       const currentWidth = window.innerWidth;
       const isMobileView = currentWidth <= 768;
@@ -33,7 +31,6 @@ export const MobileProvider = ({ children }: { children: React.ReactNode }) => {
     window.addEventListener("resize", handleResize);
 
     return () => window.removeEventListener("resize", handleResize);
-    // }
   }, [setIsMobile]);
 
   return (

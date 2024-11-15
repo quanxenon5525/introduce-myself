@@ -17,7 +17,6 @@ export const Content = () => {
     <div className="max-w-full max-h-full">
       <Introduction />
       <div>
-        {/* Framework */}
         <ListIntro title="Frameworks frontend">
           {MockupLanguage.map((value: any, index: number) => {
             return (
@@ -55,7 +54,6 @@ export const Content = () => {
           })}
         </ListIntro>
 
-        {/* Tools */}
         <ListIntro title="Tools">
           {MockupTools.map((value: any, index: number) => {
             return (
@@ -93,7 +91,6 @@ export const Content = () => {
           })}
         </ListIntro>
 
-        {/* Projects */}
         <ListProject title="Projects">
           {MockUpProjects.map((value: any, index: number) => {
             const listIcon = value.techs;
@@ -135,7 +132,6 @@ export const Content = () => {
           })}
         </ListProject>
 
-        {/* Experience */}
         <ListExperience title="Experiences">
           {MockUpExperiences.map((value: any, index: number) => {
             return (

@@ -1,15 +1,16 @@
+import { Flowbite } from "flowbite-react";
 import { Content } from "./components/Content";
-import { MobileProvider } from "./context/MobileViewContext";
 import Homepage from "./components/Homepage";
+import { MobileProvider } from "./context/MobileViewContext";
 
 export default function Home() {
   return (
-    <MobileProvider>
-      <Homepage>
-        <div className="flex flex-col items-center">
+    <Flowbite>
+      <MobileProvider>
+        <Homepage>
           <Content />
-        </div>
-      </Homepage>
-    </MobileProvider>
+        </Homepage>
+      </MobileProvider>
+    </Flowbite>
   );
 }

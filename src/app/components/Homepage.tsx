@@ -6,11 +6,14 @@ import Header from "./Header";
 type HomePageProps = {
   children: React.ReactNode;
 };
+
 const Homepage = ({ children }: HomePageProps) => {
   return (
     <div className="flex flex-col min-h-screen">
       <Header />
-      <div className="w-full h-full flex-1">{children}</div>
+      <div className="w-full h-full flex-1">
+        <div className="flex flex-col items-center">{children}</div>
+      </div>
       <FooterPage />
     </div>
   );

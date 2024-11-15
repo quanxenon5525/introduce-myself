@@ -1,18 +1,6 @@
 import type { Metadata } from "next";
-import localFont from "next/font/local";
-import { ThemeModeScript } from "flowbite-react";
+import { MobileProvider } from "./context/MobileViewContext";
 import "./styles/globals.css";
-
-const geistSans = localFont({
-  src: "./fonts/GeistVF.woff",
-  variable: "--font-geist-sans",
-  weight: "100 900",
-});
-const geistMono = localFont({
-  src: "./fonts/GeistMonoVF.woff",
-  variable: "--font-geist-mono",
-  weight: "100 900",
-});
 
 export const metadata: Metadata = {
   title: "Quan Nguyen - Introduction",
@@ -26,11 +14,11 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" suppressHydrationWarning>
-      <head></head>
-      <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
-      >
-        {children}
+      <head>
+        <link rel="icon" href="/logo.png" type="image/x-icon" />
+      </head>
+      <body suppressHydrationWarning>
+        <MobileProvider>{children}</MobileProvider>
       </body>
     </html>
   );

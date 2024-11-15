@@ -6,6 +6,7 @@ import type { Config } from "tailwindcss";
 const config: Config = {
   content: ["./src/app/**/*.{js,ts,jsx,tsx,mdx}", flowbite.content()],
   theme: {
+    darkMode: ["selector", '[data-mode="dark"]'],
     extend: {
       animation: {
         border: "border 4s linear infinite",

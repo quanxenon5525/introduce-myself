@@ -1,124 +1,91 @@
-import { useState } from "react";
-import useLocalStorage from "../hooks/use-local-storage";
+import { useEffect, useState } from "react";
 import { useMobile } from "../context/MobileViewContext";
+import { DarkThemeToggle } from "flowbite-react";
 
 const Header = () => {
   const [isOpen, setIsOpen] = useState(false);
   const { isMobile } = useMobile();
+  const [showMobileView, setShowMobileView] = useState(false);
 
   const toggleNavbar = () => {
     setIsOpen(!isOpen);
   };
 
+  useEffect(() => {
+    setShowMobileView(isMobile);
+  }, [isMobile]);
+
   return (
     <>
-      {!isMobile ? (
-        <div className="flex flex-row justify-between items-center px-4 sm:px-8 md:px-12 lg:px-52 m-8">
-          <a
-            href="#"
-            className="text-base header-text transition duration-0 hover:duration-150 ease-in-out"
-          >
-            Home
-          </a>
-          <a
-            href="#"
-            className="text-base header-text duration-0 hover:duration-150 ease-in-out"
-          >
-            About me
-          </a>
-
-          <a
-            href="#"
-            className="transition duration-0 hover:duration-150 ease-in-out"
-          >
+      {showMobileView ? (
+        <>
+          <div className="flex justify-between items-center mb-5 px-3">
+            <div>
+              <img src="/logo/menu.svg" alt="menu" width={24} height={24} />
+            </div>
+            <a href="#">
+              <img
+                src="/logo.png"
+                className="object-cover mt-0"
+                alt="logo"
+                width={80}
+                height={80}
+              />
+            </a>
+            <div>
+              <button className="text-gray-500 dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-700 focus:outline-none focus:ring-4 focus:ring-gray-200 dark:focus:ring-gray-700">
+                <DarkThemeToggle />
+              </button>
+            </div>
+          </div>
+        </>
+      ) : (
+        <div className="grid grid-flow-col justify-items-center items-center max-w-full p-3 dark:bg-red-500">
+          <a href="#">
             <img
               src="/logo.png"
-              className="object-cover"
+              className="object-cover mt-0"
               alt="logo"
               width={80}
               height={80}
             />
           </a>
-
-          <a
-            href="#"
-            className="text-basel header-text duration-0 hover:duration-150 ease-in-out"
-          >
-            Project
-          </a>
-          <a
-            href="#"
-            className="text-base header-text duration-0 hover:duration-150 ease-in-out"
-          >
-            Contact
-          </a>
-        </div>
-      ) : (
-        <>
-          <div className="flex">
-            <div
-              className={`fixed top-0 left-0 h-full bg-gray-800 text-white transform ${
-                isOpen ? "translate-x-0" : "-translate-x-full"
-              } transition-transform duration-300 ease-in-out w-64`}
+          <div className="flex justify-center space-x-4 w-full items-center">
+            <a
+              href="#"
+              className="text-base header-text transition duration-0 hover:duration-150 ease-in-out"
             >
-              <button
-                onClick={toggleNavbar}
-                className="text-white p-4 focus:outline-none"
-              >
-                {isOpen ? "Close" : "Open"}
-              </button>
-              <nav className="mt-8">
-                <a
-                  href="#"
-                  className="block px-4 py-2 text-lg hover:bg-gray-700"
-                >
-                  Home
-                </a>
-                <a
-                  href="#"
-                  className="block px-4 py-2 text-lg hover:bg-gray-700"
-                >
-                  About me
-                </a>
-                <a
-                  href="#"
-                  className="block px-4 py-2 text-lg hover:bg-gray-700"
-                >
-                  Project
-                </a>
-                <a
-                  href="#"
-                  className="block px-4 py-2 text-lg hover:bg-gray-700"
-                >
-                  Contact
-                </a>
-              </nav>
-            </div>
+              Home
+            </a>
+            <a
+              href="#"
+              className="text-base header-text duration-0 hover:duration-150 ease-in-out"
+            >
+              About me
+            </a>
+            <a
+              href="#"
+              className="text-basel header-text duration-0 hover:duration-150 ease-in-out"
+            >
+              Project
+            </a>
+            <a
+              href="#"
+              className="text-base header-text duration-0 hover:duration-150 ease-in-out"
+            >
+              Contact
+            </a>
           </div>
-          <div className="flex justify-center mb-2">
-            {!isOpen ? (
-              <button onClick={toggleNavbar}>
-                <img
-                  src="/logo.png"
-                  className="object-cover"
-                  alt="logo"
-                  width={80}
-                  height={80}
-                />
-              </button>
-            ) : (
-              <button>
-                <img
-                  src="/logo.png"
-                  className="object-cover"
-                  alt="logo"
-                  width={80}
-                  height={80}
-                />
-              </button>
-            )}
+          <div>
+            <button
+              id="theme-toggle"
+              type="button"
+              className="text-gray-500 dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-700 focus:outline-none focus:ring-4 focus:ring-gray-200 dark:focus:ring-gray-700 rounded-lg text-sm p-2.5"
+            >
+              <DarkThemeToggle />
+            </button>
           </div>
-        </>
+        </div>
       )}
     </>
   );

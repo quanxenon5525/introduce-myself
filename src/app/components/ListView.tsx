@@ -1,6 +1,5 @@
 "use client";
 import React from "react";
-import useLocalStorage from "../hooks/use-local-storage";
 import { useMobile } from "../context/MobileViewContext";
 
 type ListIntroProps = {
@@ -18,7 +17,6 @@ export const ListIntro = ({ children, title }: ListIntroProps) => {
       <div className="mt-3">
         <div
           className={
-            //  `grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4`
             !isMobile
               ? `flex flex-row flex-wrap justify-center items-center gap-4 px-4`
               : `flex flex-wrap justify-center items-center space-x-2 space-y-1`
