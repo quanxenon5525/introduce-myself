@@ -1,3 +1,5 @@
+"use client";
+
 import { Flowbite } from "flowbite-react";
 import { Content } from "./components/Content";
 import Homepage from "./components/Homepage";

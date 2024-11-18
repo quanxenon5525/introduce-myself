@@ -1,10 +1,9 @@
-import { Footer } from "flowbite-react";
 import React from "react";
+import { Footer } from "flowbite-react";
 
 const FooterPage = () => {
   const date = new Date();
   const currentYear = date.getFullYear();
-
   return (
     <div className="w-full h-auto p-5 text-center">
       <Footer.Copyright

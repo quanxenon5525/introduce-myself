@@ -1,5 +1,4 @@
 import type { Metadata } from "next";
-import { MobileProvider } from "./context/MobileViewContext";
 import "./styles/globals.css";
 
 export const metadata: Metadata = {
@@ -17,9 +16,7 @@ export default function RootLayout({
       <head>
         <link rel="icon" href="/logo.png" type="image/x-icon" />
       </head>
-      <body suppressHydrationWarning>
-        <MobileProvider>{children}</MobileProvider>
-      </body>
+      <body suppressHydrationWarning>{children}</body>
     </html>
   );
 }

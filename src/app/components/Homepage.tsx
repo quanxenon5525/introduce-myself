@@ -1,4 +1,3 @@
-"use client";
 import React from "react";
 import FooterPage from "./Footer";
 import Header from "./Header";

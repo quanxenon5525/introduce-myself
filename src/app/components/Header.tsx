@@ -1,6 +1,7 @@
-import { useEffect, useState } from "react";
+import React, { useEffect, useState } from "react";
 import { useMobile } from "../context/MobileViewContext";
 import { Button, DarkThemeToggle, Drawer, Sidebar } from "flowbite-react";
+import Link from "next/link";
 
 const Header = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -16,7 +17,7 @@ const Header = () => {
   }, [isMobile]);
 
   return (
-    <>
+    <div>
       {showMobileView ? (
         <>
           <div className="flex justify-between items-center">
@@ -29,7 +30,7 @@ const Header = () => {
         </>
       ) : (
         <div className="grid grid-flow-col justify-items-center items-center max-w-full p-3 dark:bg-red-500">
-          <a href="#">
+          <Link href="#">
             <img
               src="/logo.png"
               className="object-cover mt-0"
@@ -37,41 +38,35 @@ const Header = () => {
               width={80}
               height={80}
             />
-          </a>
+          </Link>
           <div className="flex justify-center space-x-4 w-full items-center">
-            <a
+            <Link
               href="#"
               className="text-base header-text transition duration-0 hover:duration-150 ease-in-out"
             >
               Home
-            </a>
-            <a
+            </Link>
+            <Link
               href="#"
               className="text-base header-text duration-0 hover:duration-150 ease-in-out"
             >
               About me
-            </a>
-            <a
+            </Link>
+            <Link
               href="#"
               className="text-basel header-text duration-0 hover:duration-150 ease-in-out"
             >
               Project
-            </a>
-            <a
+            </Link>
+            <Link
               href="#"
               className="text-base header-text duration-0 hover:duration-150 ease-in-out"
             >
               Contact
-            </a>
+            </Link>
           </div>
           <div>
-            <button
-              id="theme-toggle"
-              type="button"
-              className="text-gray-500 dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-700 focus:outline-none focus:ring-4 focus:ring-gray-200 dark:focus:ring-gray-700 rounded-lg text-sm p-2.5"
-            >
-              <DarkThemeToggle />
-            </button>
+            <DarkThemeToggle />
           </div>
         </div>
       )}
@@ -96,41 +91,40 @@ const Header = () => {
             aria-label="Sidebar with multi-level dropdown example"
             className="[&>div]:bg-transparent [&>div]:p-0"
           >
-            <div className="flex flex-col justify-center space-x-4 w-full items-center">
-              <a
+            <div className="flex flex-col items-center space-x-4 space-y-4 w-full">
+              <span></span>
+              <Link
                 href="#"
                 className="text-base header-text transition duration-0 hover:duration-150 ease-in-out"
               >
                 Home
-              </a>
-              <a
+              </Link>
+              <Link
                 href="#"
-                className="text-base header-text duration-0 hover:duration-150 ease-in-out"
+                className="text-base header-text transition duration-0 hover:duration-150 ease-in-out"
               >
                 About me
-              </a>
-              <a
+              </Link>
+              <Link
                 href="#"
-                className="text-basel header-text duration-0 hover:duration-150 ease-in-out"
+                className="text-basel header-text transition duration-0 hover:duration-150 ease-in-out"
               >
                 Project
-              </a>
-              <a
+              </Link>
+              <Link
                 href="#"
-                className="text-base header-text duration-0 hover:duration-150 ease-in-out"
+                className="text-base header-text transition duration-0 hover:duration-150 ease-in-out"
               >
                 Contact
-              </a>
+              </Link>
               <div className="flex items-center">
-                <button className="text-gray-500 dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-700 focus:outline-none focus:ring-4 focus:ring-gray-200 dark:focus:ring-gray-700">
-                  <DarkThemeToggle />
-                </button>
+                <DarkThemeToggle />
               </div>
             </div>
           </Sidebar>
         </Drawer.Items>
       </Drawer>
-    </>
+    </div>
   );
 };
 

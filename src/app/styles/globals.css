@@ -71,5 +71,13 @@ nav a {
 }
 
 nav a:hover {
-  background-color: #4a5568;
+  color: rgb(244, 241, 241);
+}
+
+.group.relative.flex.items-stretch {
+  background-color: transparent !important;
+}
+
+.group.relative.flex.items-stretch:hover {
+  background-color: rgb(244, 241, 241) !important;
 }

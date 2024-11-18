@@ -1,4 +1,3 @@
-"use client";
 import Image from "next/image";
 import { useMobile } from "../context/MobileViewContext";
 import {
@@ -18,14 +17,11 @@ export const Content = () => {
       <Introduction />
       <div>
         <ListIntro title="Frameworks frontend">
-          {MockupLanguage.map((value: any, index: number) => {
+          {MockupLanguage.map((value: any) => {
             return (
-              <>
+              <div key={value.id}>
                 {!isMobile ? (
-                  <div
-                    key={index}
-                    className="flex flex-col items-center w-32 text-center introduce rounded-lg p-2 space-y-3 transition duration-300 ease-in-out"
-                  >
+                  <div className="flex flex-col items-center w-32 text-center introduce rounded-lg p-2 space-y-3 transition duration-300 ease-in-out">
                     <Image
                       className="object-cover"
                       src={value.icon}
@@ -37,7 +33,7 @@ export const Content = () => {
                   </div>
                 ) : (
                   <div
-                    key={index}
+                    key={value.id}
                     className="flex justify-center items-center w-14 h-14"
                   >
                     <Image
@@ -49,20 +45,17 @@ export const Content = () => {
                     />
                   </div>
                 )}
-              </>
+              </div>
             );
           })}
         </ListIntro>
 
         <ListIntro title="Tools">
-          {MockupTools.map((value: any, index: number) => {
+          {MockupTools.map((value: any) => {
             return (
-              <>
+              <div key={value.id}>
                 {!isMobile ? (
-                  <div
-                    key={index}
-                    className="flex flex-col items-center w-32 text-center introduce rounded-lg p-2 space-y-3 transition duration-300 ease-in-out"
-                  >
+                  <div className="flex flex-col items-center w-32 text-center introduce rounded-lg p-2 space-y-3 transition duration-300 ease-in-out">
                     <Image
                       className="object-cover"
                       src={value.icon}
@@ -74,7 +67,7 @@ export const Content = () => {
                   </div>
                 ) : (
                   <div
-                    key={index}
+                    key={value.id}
                     className="flex justify-center items-center w-14 h-14"
                   >
                     <Image
@@ -86,17 +79,17 @@ export const Content = () => {
                     />
                   </div>
                 )}
-              </>
+              </div>
             );
           })}
         </ListIntro>
 
         <ListProject title="Projects">
-          {MockUpProjects.map((value: any, index: number) => {
+          {MockUpProjects.map((value: any) => {
             const listIcon = value.techs;
             return (
               <div
-                key={index}
+                key={value.id}
                 className="flex flex-col max-w-full w-full h-auto border border-2 border-gray-500 text-wrap rounded-lg hover:border-white hover:rounded-lg transition duration-300 ease-in-out shadow-lg shadow-black-500/50"
               >
                 <img
@@ -133,10 +126,10 @@ export const Content = () => {
         </ListProject>
 
         <ListExperience title="Experiences">
-          {MockUpExperiences.map((value: any, index: number) => {
+          {MockUpExperiences.map((value: any) => {
             return (
               <div
-                key={index}
+                key={value.id}
                 className="flex flex-row max-w-full w-[86%] md:w-full sm:w-full h-auto space-x-5 items-center border border-2 px-3 border-gray-500 text-wrap rounded-lg hover:border-[#ececec] hover:bg-[#ececec] hover:rounded-lg transition duration-300 ease-in-out"
               >
                 <img
